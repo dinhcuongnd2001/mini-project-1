@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mini Project</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <main class="main">
+            <div class="flex" style="justify-content: space-between">
+                <h1>Our products</h1>
+                <div class="flex" id="cart" style="gap: 5px; cursor: pointer;" onclick="showCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p id="quantity"></p>
+                </div>
+
+                <div id="cart-detail-container" onclick="handleClickCartDetailContainer(event)">
+                    <div id="cart-detail">
+                        <div>
+                            <table style="text-align: left; width: 100%; margin-bottom: 10px; max-height: 135px; overflow-y: scroll;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            Product Name
+                                        </th>
+
+                                        <th scope="col">
+                                            Quantity
+                                        </th>
+                                        <th scope="col">
+                                            Price
+                                        </th>
+                                        <th scope="col">
+                                            Remove
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="section-total" class="flex" style="justify-content: space-between;">
+                            <p id="total-price"></p>
+                            <button class="btn" onclick="submitCart()">submit</button>
+                        </div>
+                    </div>
+
+                    <div id="cart-empty">
+                        <p>Your cart is empty</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="flex" style="justify-content: start; gap: 10px; margin-top: 40px;">
+                    <b>Product type</b>
+                    <button onclick="handleClickBtnType('service')" id="btn-service" class="btn active">Services</button>
+                    <button onclick="handleClickBtnType('facility')" id="btn-facilities" class="btn">Facilities</button>
+                </div>
+
+                <div class="flex"
+                    style="justify-content: start; gap: 10px; margin-top: 40px; margin-bottom: 20px;">
+                    <b>Search</b>
+                    <input placeholder="Enter name" id="search" type="text">
+                </div>
+
+                <div id="list-items" class="list">
+                </div>
+
+                <div id="pagination">
+                    <nav aria-label="Page navigation example">
+
+                        <div class="pagination-container">
+                          <span class="item-pagination item-pagination-left" onclick="handlePrePage()">
+                            <i class="fa-solid fa-angle-left" style="font-size: 16px;"></i>
+                          </span>
+                          
+                          <div id="pagination-render"></div>
+                          
+                          <span class="item-pagination item-pagination-right" onclick="handleNextPage()">
+                            <i class="fa-solid fa-angle-right" style="font-size: 16px;"></i>
+                          </span>
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+
+            <div onclick="clickOnDetail(event)" id="detail-container">
+                <div id="detail-item">
+                </div>
+            </div>
+        </main>
+     <script src="./main-2.js"></script>
+    </body>
+
+</html>
